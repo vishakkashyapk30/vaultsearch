@@ -111,6 +111,18 @@ pip install -r requirements.txt
 The first install downloads PyTorch and some models and can take several
 minutes. This is normal.
 
+> **Using Cursor as a Linux AppImage?** If `venv` tries to execute
+> `cursor.AppImage` and exits with `SIGTRAP`, Cursor's `APPIMAGE` environment
+> variable is confusing Python. Run `unset APPIMAGE`, remove the partial
+> `.venv`, and repeat Step 3:
+> ```bash
+> unset APPIMAGE
+> rm -rf .venv
+> python3 -m venv .venv
+> source .venv/bin/activate
+> pip install -r requirements.txt
+> ```
+
 ### Step 4 — Build the demo data and search index
 
 This creates a synthetic company (people, groups, and ~225 documents across
