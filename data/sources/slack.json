@@ -1,0 +1,1212 @@
+[
+  {
+    "doc_id": "slack-000",
+    "source": "slack",
+    "title": "#engineering thread on project atlas database migration",
+    "body": "Elena: Project Atlas migrates the primary Postgres cluster from version 12 to 16.\nChitra: Got it, thanks.\nKavya: Atlas migration owner is Asha, with Ben as secondary on-call.\nInes: Atlas uses logical replication to keep downtime under five minutes.\nGrace: Got it, thanks.",
+    "allowed_principals": [
+      "group:engineering"
+    ],
+    "created_at": "2026-05-01T00:00:00",
+    "metadata": {
+      "channel": "#engineering",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-001",
+    "source": "slack",
+    "title": "#engineering thread on project atlas database migration",
+    "body": "Dmitri: Project Atlas migrates the primary Postgres cluster from version 12 to 16.\nAsha: Atlas migration owner is Asha, with Ben as secondary on-call.\nKavya: The rollback plan for Atlas is to repoint the connection pooler at the old primary.",
+    "allowed_principals": [
+      "group:engineering"
+    ],
+    "created_at": "2026-05-01T07:00:00",
+    "metadata": {
+      "channel": "#engineering",
+      "thread": 1
+    }
+  },
+  {
+    "doc_id": "slack-002",
+    "source": "slack",
+    "title": "#engineering thread on project atlas database migration",
+    "body": "Jonas: The rollback plan for Atlas is to repoint the connection pooler at the old primary.\nAsha: Makes sense to me.\nGrace: The Atlas cutover is scheduled for the first weekend of August.\nChitra: Makes sense to me.\nFarid: Atlas migration owner is Asha, with Ben as secondary on-call.\nGrace: Got it, thanks.",
+    "allowed_principals": [
+      "group:engineering"
+    ],
+    "created_at": "2026-05-01T14:00:00",
+    "metadata": {
+      "channel": "#engineering",
+      "thread": 2
+    }
+  },
+  {
+    "doc_id": "slack-003",
+    "source": "slack",
+    "title": "#engineering thread on search latency optimization workstream",
+    "body": "Elena: The reranker stage adds about 80 milliseconds at the p95.\nHiro: Shard fan-out was reduced from 16 to 8 shards after the routing change.\nGrace: Hiro is profiling the BM25 scorer for allocation churn.\nElena: I will follow up on this.",
+    "allowed_principals": [
+      "group:engineering"
+    ],
+    "created_at": "2026-05-01T21:00:00",
+    "metadata": {
+      "channel": "#engineering",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-004",
+    "source": "slack",
+    "title": "#engineering thread on search latency optimization workstream",
+    "body": "Ben: Shard fan-out was reduced from 16 to 8 shards after the routing change.\nDmitri: I will follow up on this.\nBen: Query embedding caching cut vector search latency by roughly 40 percent.\nBen: The reranker stage adds about 80 milliseconds at the p95.\nHiro: I will follow up on this.",
+    "allowed_principals": [
+      "group:engineering"
+    ],
+    "created_at": "2026-05-02T04:00:00",
+    "metadata": {
+      "channel": "#engineering",
+      "thread": 1
+    }
+  },
+  {
+    "doc_id": "slack-005",
+    "source": "slack",
+    "title": "#engineering thread on search latency optimization workstream",
+    "body": "Dmitri: Query embedding caching cut vector search latency by roughly 40 percent.\nKavya: The reranker stage adds about 80 milliseconds at the p95.\nJonas: Shard fan-out was reduced from 16 to 8 shards after the routing change.",
+    "allowed_principals": [
+      "group:engineering"
+    ],
+    "created_at": "2026-05-02T11:00:00",
+    "metadata": {
+      "channel": "#engineering",
+      "thread": 2
+    }
+  },
+  {
+    "doc_id": "slack-006",
+    "source": "slack",
+    "title": "#finance-private thread on q3 budget planning",
+    "body": "Hiro: Dmitri owns the Q3 variance report, due the second week of July.\nKavya: Makes sense to me.\nKavya: Cloud spend grew 18 percent quarter over quarter, driven mostly by GPU instances.\nAsha: Makes sense to me.\nAsha: The Q3 infrastructure budget is capped at 1.2 million dollars.",
+    "allowed_principals": [
+      "group:finance"
+    ],
+    "created_at": "2026-05-02T18:00:00",
+    "metadata": {
+      "channel": "#finance-private",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-007",
+    "source": "slack",
+    "title": "#finance-private thread on q3 budget planning",
+    "body": "Dmitri: Vendor contract renewals in Q3 total 340 thousand dollars.\nJonas: Finance approved a 200 thousand dollar reserve for the data center exit.\nFarid: The Q3 infrastructure budget is capped at 1.2 million dollars.\nHiro: Adding it to the notes.",
+    "allowed_principals": [
+      "group:finance"
+    ],
+    "created_at": "2026-05-03T01:00:00",
+    "metadata": {
+      "channel": "#finance-private",
+      "thread": 1
+    }
+  },
+  {
+    "doc_id": "slack-008",
+    "source": "slack",
+    "title": "#finance-private thread on q3 budget planning",
+    "body": "Chitra: Vendor contract renewals in Q3 total 340 thousand dollars.\nInes: I will follow up on this.\nJonas: Cloud spend grew 18 percent quarter over quarter, driven mostly by GPU instances.\nJonas: Adding it to the notes.\nFarid: Dmitri owns the Q3 variance report, due the second week of July.\nChitra: Adding it to the notes.",
+    "allowed_principals": [
+      "group:finance"
+    ],
+    "created_at": "2026-05-03T08:00:00",
+    "metadata": {
+      "channel": "#finance-private",
+      "thread": 2
+    }
+  },
+  {
+    "doc_id": "slack-009",
+    "source": "slack",
+    "title": "#leadership-private thread on project hawk acquisition evaluation",
+    "body": "Chitra: Project Hawk is the confidential evaluation of acquiring Nimbus Analytics.\nKavya: Only leadership is briefed on Project Hawk until the term sheet is signed.\nBen: Adding it to the notes.\nGrace: The Hawk decision meeting is set for July 30 with the board.",
+    "allowed_principals": [
+      "group:leadership"
+    ],
+    "created_at": "2026-05-03T15:00:00",
+    "metadata": {
+      "channel": "#leadership-private",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-010",
+    "source": "slack",
+    "title": "#leadership-private thread on project hawk acquisition evaluation",
+    "body": "Asha: The Hawk decision meeting is set for July 30 with the board.\nBen: Due diligence for Hawk found unresolved IP assignment issues with two Nimbus contractors.\nInes: Only leadership is briefed on Project Hawk until the term sheet is signed.",
+    "allowed_principals": [
+      "group:leadership"
+    ],
+    "created_at": "2026-05-03T22:00:00",
+    "metadata": {
+      "channel": "#leadership-private",
+      "thread": 1
+    }
+  },
+  {
+    "doc_id": "slack-011",
+    "source": "slack",
+    "title": "#leadership-private thread on project hawk acquisition evaluation",
+    "body": "Grace: Due diligence for Hawk found unresolved IP assignment issues with two Nimbus contractors.\nAsha: I will follow up on this.\nInes: Project Hawk is the confidential evaluation of acquiring Nimbus Analytics.\nInes: The proposed Hawk offer range is 45 to 60 million dollars.",
+    "allowed_principals": [
+      "group:leadership"
+    ],
+    "created_at": "2026-05-04T05:00:00",
+    "metadata": {
+      "channel": "#leadership-private",
+      "thread": 2
+    }
+  },
+  {
+    "doc_id": "slack-012",
+    "source": "slack",
+    "title": "#hr-private thread on compensation band refresh",
+    "body": "Farid: Equity refresh grants vest over four years with a one year cliff.\nInes: The L5 engineer salary band tops out at 210 thousand dollars base.\nInes: The L4 engineer salary band was refreshed to 145 to 175 thousand dollars base.",
+    "allowed_principals": [
+      "group:hr"
+    ],
+    "created_at": "2026-05-04T12:00:00",
+    "metadata": {
+      "channel": "#hr-private",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-013",
+    "source": "slack",
+    "title": "#hr-private thread on compensation band refresh",
+    "body": "Asha: Grace is running calibration sessions with each department head.\nFarid: I will follow up on this.\nDmitri: Equity refresh grants vest over four years with a one year cliff.\nJonas: Got it, thanks.\nBen: The L5 engineer salary band tops out at 210 thousand dollars base.",
+    "allowed_principals": [
+      "group:hr"
+    ],
+    "created_at": "2026-05-04T19:00:00",
+    "metadata": {
+      "channel": "#hr-private",
+      "thread": 1
+    }
+  },
+  {
+    "doc_id": "slack-014",
+    "source": "slack",
+    "title": "#hr-private thread on compensation band refresh",
+    "body": "Kavya: The L4 engineer salary band was refreshed to 145 to 175 thousand dollars base.\nInes: Makes sense to me.\nElena: The L5 engineer salary band tops out at 210 thousand dollars base.\nJonas: Grace is running calibration sessions with each department head.\nDmitri: Makes sense to me.",
+    "allowed_principals": [
+      "group:hr"
+    ],
+    "created_at": "2026-05-05T02:00:00",
+    "metadata": {
+      "channel": "#hr-private",
+      "thread": 2
+    }
+  },
+  {
+    "doc_id": "slack-015",
+    "source": "slack",
+    "title": "#incident-response thread on sev1 payments outage postmortem",
+    "body": "Kavya: The payments outage was detected by the synthetic checkout probe, not by alerts on error rate.\nInes: Adding it to the notes.\nBen: Remediation includes adding a canary stage and connection pool alarms.\nBen: I will follow up on this.\nAsha: Estimated revenue impact of the outage is 90 thousand dollars.",
+    "allowed_principals": [
+      "group:engineering",
+      "group:leadership"
+    ],
+    "created_at": "2026-05-05T09:00:00",
+    "metadata": {
+      "channel": "#incident-response",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-016",
+    "source": "slack",
+    "title": "#incident-response thread on sev1 payments outage postmortem",
+    "body": "Ben: Root cause of the payments outage was a misconfigured connection pool limit after a deploy.\nAsha: Estimated revenue impact of the outage is 90 thousand dollars.\nAsha: I will follow up on this.\nBen: The June 12 payments outage lasted 47 minutes and affected 8 percent of checkouts.",
+    "allowed_principals": [
+      "group:engineering",
+      "group:leadership"
+    ],
+    "created_at": "2026-05-05T16:00:00",
+    "metadata": {
+      "channel": "#incident-response",
+      "thread": 1
+    }
+  },
+  {
+    "doc_id": "slack-017",
+    "source": "slack",
+    "title": "#incident-response thread on sev1 payments outage postmortem",
+    "body": "Ines: The payments outage was detected by the synthetic checkout probe, not by alerts on error rate.\nJonas: Adding it to the notes.\nDmitri: Remediation includes adding a canary stage and connection pool alarms.\nGrace: The June 12 payments outage lasted 47 minutes and affected 8 percent of checkouts.\nBen: Adding it to the notes.",
+    "allowed_principals": [
+      "group:engineering",
+      "group:leadership"
+    ],
+    "created_at": "2026-05-05T23:00:00",
+    "metadata": {
+      "channel": "#incident-response",
+      "thread": 2
+    }
+  },
+  {
+    "doc_id": "slack-018",
+    "source": "slack",
+    "title": "#general thread on new hire onboarding guide",
+    "body": "Hiro: All new hires complete security training within the first week.\nAsha: The engineering onboarding track includes a starter task in the first sprint.\nKavya: The onboarding buddy program pairs every new hire with a peer for the first month.\nGrace: I will follow up on this.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-06T06:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-019",
+    "source": "slack",
+    "title": "#general thread on new hire onboarding guide",
+    "body": "Dmitri: New hires get laptop and accounts provisioned within the first two days.\nChitra: The onboarding buddy program pairs every new hire with a peer for the first month.\nElena: Adding it to the notes.\nDmitri: IT support hours are 9 to 5 in each regional office.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-06T13:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 1
+    }
+  },
+  {
+    "doc_id": "slack-020",
+    "source": "slack",
+    "title": "#general thread on new hire onboarding guide",
+    "body": "Ben: New hires get laptop and accounts provisioned within the first two days.\nInes: Got it, thanks.\nBen: The engineering onboarding track includes a starter task in the first sprint.\nDmitri: All new hires complete security training within the first week.\nHiro: Adding it to the notes.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-06T20:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 2
+    }
+  },
+  {
+    "doc_id": "slack-021",
+    "source": "slack",
+    "title": "#general thread on paid time off policy",
+    "body": "Chitra: Unused PTO carries over up to 5 days into the next calendar year.\nGrace: I will follow up on this.\nHiro: Sick leave is separate from PTO and does not require advance notice.\nInes: Adding it to the notes.\nChitra: The company offers 25 days of paid time off per year plus public holidays.\nDmitri: Got it, thanks.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-07T03:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-022",
+    "source": "slack",
+    "title": "#general thread on paid time off policy",
+    "body": "Farid: Parental leave is 16 weeks fully paid for all parents.\nJonas: Adding it to the notes.\nInes: The company offers 25 days of paid time off per year plus public holidays.\nInes: PTO requests longer than two weeks need manager approval one month ahead.\nInes: Got it, thanks.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-07T10:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 1
+    }
+  },
+  {
+    "doc_id": "slack-023",
+    "source": "slack",
+    "title": "#general thread on paid time off policy",
+    "body": "Ben: Unused PTO carries over up to 5 days into the next calendar year.\nDmitri: The company offers 25 days of paid time off per year plus public holidays.\nJonas: Makes sense to me.\nJonas: PTO requests longer than two weeks need manager approval one month ahead.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-07T17:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 2
+    }
+  },
+  {
+    "doc_id": "slack-024",
+    "source": "slack",
+    "title": "#general thread on company offsite planning",
+    "body": "Kavya: Each team gets a 2 hour slot for roadmap presentations at the offsite.\nInes: The annual offsite is in Lisbon during the second week of September.\nElena: Makes sense to me.\nKavya: Offsite travel bookings must be completed by August 1.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-08T00:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-025",
+    "source": "slack",
+    "title": "#general thread on company offsite planning",
+    "body": "Chitra: Offsite travel bookings must be completed by August 1.\nElena: The offsite agenda includes a hack day and department planning sessions.\nBen: Got it, thanks.\nHiro: Each team gets a 2 hour slot for roadmap presentations at the offsite.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-08T07:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 1
+    }
+  },
+  {
+    "doc_id": "slack-026",
+    "source": "slack",
+    "title": "#general thread on company offsite planning",
+    "body": "Ines: Each team gets a 2 hour slot for roadmap presentations at the offsite.\nElena: Makes sense to me.\nFarid: The annual offsite is in Lisbon during the second week of September.\nDmitri: Ines is coordinating dietary requirements and accessibility needs for the offsite.\nChitra: Adding it to the notes.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-08T14:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 2
+    }
+  },
+  {
+    "doc_id": "slack-027",
+    "source": "slack",
+    "title": "#vendor-audit thread on vendor security audit",
+    "body": "Kavya: Jonas tracks audit status in the shared risk register.\nKavya: SOC 2 reports are now required for any vendor contract above 50 thousand dollars.\nElena: The audit deadline for remediation evidence is September 30.",
+    "allowed_principals": [
+      "group:finance",
+      "group:engineering"
+    ],
+    "created_at": "2026-05-08T21:00:00",
+    "metadata": {
+      "channel": "#vendor-audit",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-028",
+    "source": "slack",
+    "title": "#vendor-audit thread on vendor security audit",
+    "body": "Ben: The vendor security audit covers all suppliers with access to production data.\nInes: Three vendors failed the initial audit questionnaire and need remediation plans.\nElena: Makes sense to me.\nFarid: The audit deadline for remediation evidence is September 30.\nKavya: I will follow up on this.",
+    "allowed_principals": [
+      "group:finance",
+      "group:engineering"
+    ],
+    "created_at": "2026-05-09T04:00:00",
+    "metadata": {
+      "channel": "#vendor-audit",
+      "thread": 1
+    }
+  },
+  {
+    "doc_id": "slack-029",
+    "source": "slack",
+    "title": "#vendor-audit thread on vendor security audit",
+    "body": "Asha: Jonas tracks audit status in the shared risk register.\nGrace: I will follow up on this.\nAsha: The audit deadline for remediation evidence is September 30.\nChitra: I will follow up on this.\nChitra: Three vendors failed the initial audit questionnaire and need remediation plans.",
+    "allowed_principals": [
+      "group:finance",
+      "group:engineering"
+    ],
+    "created_at": "2026-05-09T11:00:00",
+    "metadata": {
+      "channel": "#vendor-audit",
+      "thread": 2
+    }
+  },
+  {
+    "doc_id": "slack-030",
+    "source": "slack",
+    "title": "#engineering thread on search ranking experiment results",
+    "body": "Asha: Next experiment is testing a distilled reranker to cut inference cost.\nChitra: Got it, thanks.\nFarid: Kavya's query segmentation change reduced zero-result queries by a third.\nChitra: The cross encoder reranker improved click through rate by 6 percent in the online test.\nAsha: I will follow up on this.",
+    "allowed_principals": [
+      "group:engineering"
+    ],
+    "created_at": "2026-05-09T18:00:00",
+    "metadata": {
+      "channel": "#engineering",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-031",
+    "source": "slack",
+    "title": "#engineering thread on search ranking experiment results",
+    "body": "Dmitri: The cross encoder reranker improved click through rate by 6 percent in the online test.\nKavya: The hybrid retrieval experiment improved NDCG at 10 by 12 percent over BM25 alone.\nInes: Adding it to the notes.\nJonas: Reciprocal rank fusion beat linear score interpolation in every offline test.",
+    "allowed_principals": [
+      "group:engineering"
+    ],
+    "created_at": "2026-05-10T01:00:00",
+    "metadata": {
+      "channel": "#engineering",
+      "thread": 1
+    }
+  },
+  {
+    "doc_id": "slack-032",
+    "source": "slack",
+    "title": "#engineering thread on search ranking experiment results",
+    "body": "Grace: Reciprocal rank fusion beat linear score interpolation in every offline test.\nFarid: Adding it to the notes.\nKavya: Next experiment is testing a distilled reranker to cut inference cost.\nDmitri: The hybrid retrieval experiment improved NDCG at 10 by 12 percent over BM25 alone.\nBen: Adding it to the notes.",
+    "allowed_principals": [
+      "group:engineering"
+    ],
+    "created_at": "2026-05-10T08:00:00",
+    "metadata": {
+      "channel": "#engineering",
+      "thread": 2
+    }
+  },
+  {
+    "doc_id": "slack-033",
+    "source": "slack",
+    "title": "#general thread on office network refresh",
+    "body": "Dmitri: The office network refresh replaces all access points over two weekends.\nHiro: The guest network SSID stays unchanged after the refresh.\nDmitri: Makes sense to me.\nAsha: Report connectivity issues in the IT helpdesk portal, not in chat.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-10T15:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-034",
+    "source": "slack",
+    "title": "#general thread on office network refresh",
+    "body": "Ben: The guest network SSID stays unchanged after the refresh.\nElena: Expect brief Wi-Fi interruptions on the refresh weekends.\nInes: Adding it to the notes.\nKavya: Wired ports in meeting rooms move to the new VLAN during the refresh.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-10T22:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 1
+    }
+  },
+  {
+    "doc_id": "slack-035",
+    "source": "slack",
+    "title": "#general thread on office network refresh",
+    "body": "Ben: Report connectivity issues in the IT helpdesk portal, not in chat.\nElena: Expect brief Wi-Fi interruptions on the refresh weekends.\nElena: Got it, thanks.\nBen: The office network refresh replaces all access points over two weekends.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-11T05:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 2
+    }
+  },
+  {
+    "doc_id": "slack-036",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Farid: Great talk yesterday, slides are in the shared folder.\nJonas: The build is green again, thanks everyone.\nGrace: I'll be out tomorrow morning, back after lunch.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-11T12:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-037",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Asha: Great talk yesterday, slides are in the shared folder.\nAsha: I'll be out tomorrow morning, back after lunch.\nFarid: Great talk yesterday, slides are in the shared folder.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-11T19:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-038",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Kavya: Standup moved 30 minutes later today.\nJonas: Standup moved 30 minutes later today.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-12T02:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-039",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Ben: Can someone review my PR when they get a chance?\nInes: Can someone review my PR when they get a chance?\nKavya: Great talk yesterday, slides are in the shared folder.\nFarid: Great talk yesterday, slides are in the shared folder.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-12T09:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-040",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Elena: Reminder: demo Friday at 11am.\nDmitri: Great talk yesterday, slides are in the shared folder.\nKavya: Great talk yesterday, slides are in the shared folder.\nKavya: Reminder: demo Friday at 11am.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-12T16:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-041",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Jonas: Can someone review my PR when they get a chance?\nGrace: Anyone up for coffee at 3?\nElena: Can someone review my PR when they get a chance?\nDmitri: Great talk yesterday, slides are in the shared folder.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-12T23:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-042",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Jonas: Standup moved 30 minutes later today.\nHiro: Heads up, staging will be flaky for the next hour.\nHiro: I'll be out tomorrow morning, back after lunch.\nInes: Heads up, staging will be flaky for the next hour.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-13T06:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-043",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Chitra: The build is green again, thanks everyone.\nElena: Standup moved 30 minutes later today.\nBen: I'll be out tomorrow morning, back after lunch.\nKavya: Can someone review my PR when they get a chance?",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-13T13:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-044",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Dmitri: Reminder: demo Friday at 11am.\nAsha: Anyone up for coffee at 3?",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-13T20:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-045",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Hiro: The build is green again, thanks everyone.\nHiro: Great talk yesterday, slides are in the shared folder.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-14T03:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-046",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Jonas: I'll be out tomorrow morning, back after lunch.\nGrace: Heads up, staging will be flaky for the next hour.\nGrace: I'll be out tomorrow morning, back after lunch.\nChitra: Anyone up for coffee at 3?",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-14T10:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-047",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Grace: I'll be out tomorrow morning, back after lunch.\nChitra: Heads up, staging will be flaky for the next hour.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-14T17:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-048",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Ines: I'll be out tomorrow morning, back after lunch.\nBen: Heads up, staging will be flaky for the next hour.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-15T00:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-049",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Hiro: Standup moved 30 minutes later today.\nHiro: Great talk yesterday, slides are in the shared folder.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-15T07:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-050",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Hiro: Reminder: demo Friday at 11am.\nHiro: Heads up, staging will be flaky for the next hour.\nElena: I'll be out tomorrow morning, back after lunch.\nKavya: Can someone review my PR when they get a chance?",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-15T14:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-051",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Hiro: I'll be out tomorrow morning, back after lunch.\nElena: Heads up, staging will be flaky for the next hour.\nBen: Can someone review my PR when they get a chance?\nDmitri: Can someone review my PR when they get a chance?",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-15T21:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-052",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Farid: The build is green again, thanks everyone.\nChitra: Reminder: demo Friday at 11am.\nDmitri: Great talk yesterday, slides are in the shared folder.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-16T04:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-053",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Chitra: I'll be out tomorrow morning, back after lunch.\nBen: Great talk yesterday, slides are in the shared folder.\nGrace: Standup moved 30 minutes later today.\nInes: Heads up, staging will be flaky for the next hour.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-16T11:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-054",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Asha: I'll be out tomorrow morning, back after lunch.\nGrace: Great talk yesterday, slides are in the shared folder.\nJonas: Anyone up for coffee at 3?",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-16T18:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-055",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Grace: Heads up, staging will be flaky for the next hour.\nAsha: Standup moved 30 minutes later today.\nElena: Great talk yesterday, slides are in the shared folder.\nGrace: I'll be out tomorrow morning, back after lunch.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-17T01:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-056",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Dmitri: Can someone review my PR when they get a chance?\nGrace: Heads up, staging will be flaky for the next hour.\nAsha: Great talk yesterday, slides are in the shared folder.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-17T08:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-057",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Kavya: Great talk yesterday, slides are in the shared folder.\nChitra: Heads up, staging will be flaky for the next hour.\nChitra: Anyone up for coffee at 3?",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-17T15:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-058",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Jonas: Anyone up for coffee at 3?\nBen: Great talk yesterday, slides are in the shared folder.\nChitra: Heads up, staging will be flaky for the next hour.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-17T22:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-059",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Asha: Can someone review my PR when they get a chance?\nGrace: Standup moved 30 minutes later today.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-18T05:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-060",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Hiro: Standup moved 30 minutes later today.\nFarid: Great talk yesterday, slides are in the shared folder.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-18T12:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-061",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Grace: Can someone review my PR when they get a chance?\nBen: Heads up, staging will be flaky for the next hour.\nAsha: Anyone up for coffee at 3?",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-18T19:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-062",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Dmitri: The build is green again, thanks everyone.\nKavya: Anyone up for coffee at 3?\nAsha: I'll be out tomorrow morning, back after lunch.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-19T02:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-063",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Asha: Reminder: demo Friday at 11am.\nDmitri: Reminder: demo Friday at 11am.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-19T09:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-064",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Kavya: The build is green again, thanks everyone.\nJonas: I'll be out tomorrow morning, back after lunch.\nHiro: Can someone review my PR when they get a chance?",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-19T16:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-065",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Chitra: The build is green again, thanks everyone.\nChitra: Can someone review my PR when they get a chance?\nBen: Anyone up for coffee at 3?",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-19T23:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-066",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Jonas: Great talk yesterday, slides are in the shared folder.\nGrace: I'll be out tomorrow morning, back after lunch.\nBen: I'll be out tomorrow morning, back after lunch.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-20T06:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-067",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Elena: The build is green again, thanks everyone.\nJonas: Anyone up for coffee at 3?",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-20T13:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-068",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Ines: Great talk yesterday, slides are in the shared folder.\nKavya: Standup moved 30 minutes later today.\nBen: Standup moved 30 minutes later today.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-20T20:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-069",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Grace: Heads up, staging will be flaky for the next hour.\nBen: Great talk yesterday, slides are in the shared folder.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-21T03:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-070",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Kavya: Heads up, staging will be flaky for the next hour.\nChitra: Great talk yesterday, slides are in the shared folder.\nChitra: Can someone review my PR when they get a chance?",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-21T10:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-071",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Ines: Heads up, staging will be flaky for the next hour.\nHiro: Great talk yesterday, slides are in the shared folder.\nJonas: Can someone review my PR when they get a chance?\nFarid: I'll be out tomorrow morning, back after lunch.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-21T17:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-072",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Elena: Heads up, staging will be flaky for the next hour.\nDmitri: Heads up, staging will be flaky for the next hour.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-22T00:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-073",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Jonas: Great talk yesterday, slides are in the shared folder.\nFarid: Anyone up for coffee at 3?\nHiro: Standup moved 30 minutes later today.\nChitra: Heads up, staging will be flaky for the next hour.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-22T07:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-074",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Farid: Can someone review my PR when they get a chance?\nFarid: Can someone review my PR when they get a chance?",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-22T14:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-075",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Elena: Anyone up for coffee at 3?\nInes: I'll be out tomorrow morning, back after lunch.\nBen: I'll be out tomorrow morning, back after lunch.\nGrace: Heads up, staging will be flaky for the next hour.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-22T21:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-076",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Dmitri: Heads up, staging will be flaky for the next hour.\nKavya: Heads up, staging will be flaky for the next hour.\nHiro: Anyone up for coffee at 3?\nBen: Can someone review my PR when they get a chance?",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-23T04:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-077",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Grace: I'll be out tomorrow morning, back after lunch.\nElena: Standup moved 30 minutes later today.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-23T11:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-078",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Ines: Standup moved 30 minutes later today.\nGrace: Standup moved 30 minutes later today.\nFarid: Heads up, staging will be flaky for the next hour.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-23T18:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-079",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Elena: Can someone review my PR when they get a chance?\nDmitri: The build is green again, thanks everyone.\nDmitri: Standup moved 30 minutes later today.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-24T01:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-080",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Ines: Reminder: demo Friday at 11am.\nDmitri: I'll be out tomorrow morning, back after lunch.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-24T08:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-081",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Hiro: Can someone review my PR when they get a chance?\nJonas: Can someone review my PR when they get a chance?\nBen: I'll be out tomorrow morning, back after lunch.\nElena: I'll be out tomorrow morning, back after lunch.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-24T15:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-082",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Chitra: Can someone review my PR when they get a chance?\nAsha: Reminder: demo Friday at 11am.\nElena: Anyone up for coffee at 3?",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-24T22:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-083",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Ines: Can someone review my PR when they get a chance?\nChitra: Heads up, staging will be flaky for the next hour.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-25T05:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-084",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Asha: Can someone review my PR when they get a chance?\nHiro: Heads up, staging will be flaky for the next hour.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-25T12:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  },
+  {
+    "doc_id": "slack-085",
+    "source": "slack",
+    "title": "#general chatter",
+    "body": "Farid: Reminder: demo Friday at 11am.\nAsha: Can someone review my PR when they get a chance?\nHiro: The build is green again, thanks everyone.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-25T19:00:00",
+    "metadata": {
+      "channel": "#general",
+      "thread": 0
+    }
+  }
+]

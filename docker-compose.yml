@@ -1,0 +1,17 @@
+services:
+  vaultsearch:
+    build: .
+    network_mode: host
+    environment:
+      OLLAMA_URL: http://127.0.0.1:11434
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-gemma3:4b}
+      USE_RERANKER: ${USE_RERANKER:-true}
+      HF_HOME: /cache/huggingface
+    volumes:
+      - ./indexes:/app/indexes
+      - ./logs:/app/logs
+      - huggingface-cache:/cache/huggingface
+    restart: unless-stopped
+
+volumes:
+  huggingface-cache:

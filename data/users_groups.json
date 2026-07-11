@@ -1,0 +1,24 @@
+{
+  "groups": [
+    "group:all-staff",
+    "group:engineering",
+    "group:finance",
+    "group:leadership",
+    "group:hr",
+    "group:admin"
+  ],
+  "users": [
+    {"user_id": "user:asha",    "name": "Asha Raman",     "groups": ["group:all-staff", "group:engineering"]},
+    {"user_id": "user:ben",     "name": "Ben Okafor",     "groups": ["group:all-staff", "group:engineering"]},
+    {"user_id": "user:chitra",  "name": "Chitra Nair",    "groups": ["group:all-staff", "group:engineering", "group:leadership"]},
+    {"user_id": "user:dmitri",  "name": "Dmitri Volkov",  "groups": ["group:all-staff", "group:finance"]},
+    {"user_id": "user:elena",   "name": "Elena Costa",    "groups": ["group:all-staff", "group:finance", "group:leadership"]},
+    {"user_id": "user:farid",   "name": "Farid Hassan",   "groups": ["group:all-staff", "group:hr"]},
+    {"user_id": "user:grace",   "name": "Grace Liu",      "groups": ["group:all-staff", "group:hr", "group:leadership"]},
+    {"user_id": "user:hiro",    "name": "Hiro Tanaka",    "groups": ["group:all-staff", "group:engineering"]},
+    {"user_id": "user:ines",    "name": "Ines Moreau",    "groups": ["group:all-staff"]},
+    {"user_id": "user:jonas",   "name": "Jonas Berg",     "groups": ["group:all-staff", "group:finance"]},
+    {"user_id": "user:kavya",   "name": "Kavya Pillai",   "groups": ["group:all-staff", "group:engineering"]},
+    {"user_id": "user:root",    "name": "Site Admin",     "groups": ["group:admin"]}
+  ]
+}

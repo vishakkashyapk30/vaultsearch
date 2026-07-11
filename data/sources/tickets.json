@@ -1,0 +1,938 @@
+[
+  {
+    "doc_id": "ticket-000",
+    "source": "tickets",
+    "title": "[CORE-100] Project Atlas migrates the primary Postgres cluster from ver",
+    "body": "Project Atlas migrates the primary Postgres cluster from version 12 to 16.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to project atlas database migration.",
+    "allowed_principals": [
+      "group:engineering"
+    ],
+    "created_at": "2026-05-01T00:00:00",
+    "metadata": {
+      "project": "CORE",
+      "status": "done",
+      "assignee": "Farid"
+    }
+  },
+  {
+    "doc_id": "ticket-001",
+    "source": "tickets",
+    "title": "[CORE-101] The Atlas cutover is scheduled for the first weekend of Augu",
+    "body": "The Atlas cutover is scheduled for the first weekend of August.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to project atlas database migration.",
+    "allowed_principals": [
+      "group:engineering"
+    ],
+    "created_at": "2026-05-01T21:00:00",
+    "metadata": {
+      "project": "CORE",
+      "status": "blocked",
+      "assignee": "Elena"
+    }
+  },
+  {
+    "doc_id": "ticket-002",
+    "source": "tickets",
+    "title": "[CORE-102] Atlas uses logical replication to keep downtime under five m",
+    "body": "Atlas uses logical replication to keep downtime under five minutes.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to project atlas database migration.",
+    "allowed_principals": [
+      "group:engineering"
+    ],
+    "created_at": "2026-05-02T18:00:00",
+    "metadata": {
+      "project": "CORE",
+      "status": "done",
+      "assignee": "Grace"
+    }
+  },
+  {
+    "doc_id": "ticket-003",
+    "source": "tickets",
+    "title": "[CORE-103] The rollback plan for Atlas is to repoint the connection poo",
+    "body": "The rollback plan for Atlas is to repoint the connection pooler at the old primary.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to project atlas database migration.",
+    "allowed_principals": [
+      "group:engineering"
+    ],
+    "created_at": "2026-05-03T15:00:00",
+    "metadata": {
+      "project": "CORE",
+      "status": "open",
+      "assignee": "Kavya"
+    }
+  },
+  {
+    "doc_id": "ticket-004",
+    "source": "tickets",
+    "title": "[CORE-104] Atlas migration owner is Asha, with Ben as secondary on-call",
+    "body": "Atlas migration owner is Asha, with Ben as secondary on-call.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to project atlas database migration.",
+    "allowed_principals": [
+      "group:engineering"
+    ],
+    "created_at": "2026-05-04T12:00:00",
+    "metadata": {
+      "project": "CORE",
+      "status": "done",
+      "assignee": "Kavya"
+    }
+  },
+  {
+    "doc_id": "ticket-005",
+    "source": "tickets",
+    "title": "[CORE-105] The p95 search latency target is 250 milliseconds end to end",
+    "body": "The p95 search latency target is 250 milliseconds end to end.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to search latency optimization workstream.",
+    "allowed_principals": [
+      "group:engineering"
+    ],
+    "created_at": "2026-05-05T09:00:00",
+    "metadata": {
+      "project": "CORE",
+      "status": "done",
+      "assignee": "Ben"
+    }
+  },
+  {
+    "doc_id": "ticket-006",
+    "source": "tickets",
+    "title": "[CORE-106] Query embedding caching cut vector search latency by roughly",
+    "body": "Query embedding caching cut vector search latency by roughly 40 percent.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to search latency optimization workstream.",
+    "allowed_principals": [
+      "group:engineering"
+    ],
+    "created_at": "2026-05-06T06:00:00",
+    "metadata": {
+      "project": "CORE",
+      "status": "blocked",
+      "assignee": "Ben"
+    }
+  },
+  {
+    "doc_id": "ticket-007",
+    "source": "tickets",
+    "title": "[CORE-107] The reranker stage adds about 80 milliseconds at the p95",
+    "body": "The reranker stage adds about 80 milliseconds at the p95.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to search latency optimization workstream.",
+    "allowed_principals": [
+      "group:engineering"
+    ],
+    "created_at": "2026-05-07T03:00:00",
+    "metadata": {
+      "project": "CORE",
+      "status": "done",
+      "assignee": "Elena"
+    }
+  },
+  {
+    "doc_id": "ticket-008",
+    "source": "tickets",
+    "title": "[CORE-108] Hiro is profiling the BM25 scorer for allocation churn",
+    "body": "Hiro is profiling the BM25 scorer for allocation churn.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to search latency optimization workstream.",
+    "allowed_principals": [
+      "group:engineering"
+    ],
+    "created_at": "2026-05-08T00:00:00",
+    "metadata": {
+      "project": "CORE",
+      "status": "in_progress",
+      "assignee": "Kavya"
+    }
+  },
+  {
+    "doc_id": "ticket-009",
+    "source": "tickets",
+    "title": "[CORE-109] Shard fan-out was reduced from 16 to 8 shards after the rout",
+    "body": "Shard fan-out was reduced from 16 to 8 shards after the routing change.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to search latency optimization workstream.",
+    "allowed_principals": [
+      "group:engineering"
+    ],
+    "created_at": "2026-05-08T21:00:00",
+    "metadata": {
+      "project": "CORE",
+      "status": "open",
+      "assignee": "Farid"
+    }
+  },
+  {
+    "doc_id": "ticket-010",
+    "source": "tickets",
+    "title": "[FIN-110] The Q3 infrastructure budget is capped at 1.2 million dollar",
+    "body": "The Q3 infrastructure budget is capped at 1.2 million dollars.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to q3 budget planning.",
+    "allowed_principals": [
+      "group:finance"
+    ],
+    "created_at": "2026-05-09T18:00:00",
+    "metadata": {
+      "project": "FIN",
+      "status": "in_progress",
+      "assignee": "Jonas"
+    }
+  },
+  {
+    "doc_id": "ticket-011",
+    "source": "tickets",
+    "title": "[FIN-111] Cloud spend grew 18 percent quarter over quarter, driven mos",
+    "body": "Cloud spend grew 18 percent quarter over quarter, driven mostly by GPU instances.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to q3 budget planning.",
+    "allowed_principals": [
+      "group:finance"
+    ],
+    "created_at": "2026-05-10T15:00:00",
+    "metadata": {
+      "project": "FIN",
+      "status": "done",
+      "assignee": "Farid"
+    }
+  },
+  {
+    "doc_id": "ticket-012",
+    "source": "tickets",
+    "title": "[FIN-112] Finance approved a 200 thousand dollar reserve for the data ",
+    "body": "Finance approved a 200 thousand dollar reserve for the data center exit.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to q3 budget planning.",
+    "allowed_principals": [
+      "group:finance"
+    ],
+    "created_at": "2026-05-11T12:00:00",
+    "metadata": {
+      "project": "FIN",
+      "status": "blocked",
+      "assignee": "Kavya"
+    }
+  },
+  {
+    "doc_id": "ticket-013",
+    "source": "tickets",
+    "title": "[FIN-113] Vendor contract renewals in Q3 total 340 thousand dollars",
+    "body": "Vendor contract renewals in Q3 total 340 thousand dollars.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to q3 budget planning.",
+    "allowed_principals": [
+      "group:finance"
+    ],
+    "created_at": "2026-05-12T09:00:00",
+    "metadata": {
+      "project": "FIN",
+      "status": "open",
+      "assignee": "Chitra"
+    }
+  },
+  {
+    "doc_id": "ticket-014",
+    "source": "tickets",
+    "title": "[FIN-114] Dmitri owns the Q3 variance report, due the second week of J",
+    "body": "Dmitri owns the Q3 variance report, due the second week of July.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to q3 budget planning.",
+    "allowed_principals": [
+      "group:finance"
+    ],
+    "created_at": "2026-05-13T06:00:00",
+    "metadata": {
+      "project": "FIN",
+      "status": "blocked",
+      "assignee": "Elena"
+    }
+  },
+  {
+    "doc_id": "ticket-015",
+    "source": "tickets",
+    "title": "[EXEC-115] Project Hawk is the confidential evaluation of acquiring Nim",
+    "body": "Project Hawk is the confidential evaluation of acquiring Nimbus Analytics.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to project hawk acquisition evaluation.",
+    "allowed_principals": [
+      "group:leadership"
+    ],
+    "created_at": "2026-05-14T03:00:00",
+    "metadata": {
+      "project": "EXEC",
+      "status": "done",
+      "assignee": "Kavya"
+    }
+  },
+  {
+    "doc_id": "ticket-016",
+    "source": "tickets",
+    "title": "[EXEC-116] The proposed Hawk offer range is 45 to 60 million dollars",
+    "body": "The proposed Hawk offer range is 45 to 60 million dollars.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to project hawk acquisition evaluation.",
+    "allowed_principals": [
+      "group:leadership"
+    ],
+    "created_at": "2026-05-15T00:00:00",
+    "metadata": {
+      "project": "EXEC",
+      "status": "open",
+      "assignee": "Chitra"
+    }
+  },
+  {
+    "doc_id": "ticket-017",
+    "source": "tickets",
+    "title": "[EXEC-117] Due diligence for Hawk found unresolved IP assignment issues",
+    "body": "Due diligence for Hawk found unresolved IP assignment issues with two Nimbus contractors.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to project hawk acquisition evaluation.",
+    "allowed_principals": [
+      "group:leadership"
+    ],
+    "created_at": "2026-05-15T21:00:00",
+    "metadata": {
+      "project": "EXEC",
+      "status": "blocked",
+      "assignee": "Kavya"
+    }
+  },
+  {
+    "doc_id": "ticket-018",
+    "source": "tickets",
+    "title": "[EXEC-118] The Hawk decision meeting is set for July 30 with the board",
+    "body": "The Hawk decision meeting is set for July 30 with the board.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to project hawk acquisition evaluation.",
+    "allowed_principals": [
+      "group:leadership"
+    ],
+    "created_at": "2026-05-16T18:00:00",
+    "metadata": {
+      "project": "EXEC",
+      "status": "done",
+      "assignee": "Ines"
+    }
+  },
+  {
+    "doc_id": "ticket-019",
+    "source": "tickets",
+    "title": "[EXEC-119] Only leadership is briefed on Project Hawk until the term sh",
+    "body": "Only leadership is briefed on Project Hawk until the term sheet is signed.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to project hawk acquisition evaluation.",
+    "allowed_principals": [
+      "group:leadership"
+    ],
+    "created_at": "2026-05-17T15:00:00",
+    "metadata": {
+      "project": "EXEC",
+      "status": "done",
+      "assignee": "Asha"
+    }
+  },
+  {
+    "doc_id": "ticket-020",
+    "source": "tickets",
+    "title": "[PEOPLE-120] The L4 engineer salary band was refreshed to 145 to 175 thou",
+    "body": "The L4 engineer salary band was refreshed to 145 to 175 thousand dollars base.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to compensation band refresh.",
+    "allowed_principals": [
+      "group:hr"
+    ],
+    "created_at": "2026-05-18T12:00:00",
+    "metadata": {
+      "project": "PEOPLE",
+      "status": "in_progress",
+      "assignee": "Elena"
+    }
+  },
+  {
+    "doc_id": "ticket-021",
+    "source": "tickets",
+    "title": "[PEOPLE-121] The L5 engineer salary band tops out at 210 thousand dollars",
+    "body": "The L5 engineer salary band tops out at 210 thousand dollars base.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to compensation band refresh.",
+    "allowed_principals": [
+      "group:hr"
+    ],
+    "created_at": "2026-05-19T09:00:00",
+    "metadata": {
+      "project": "PEOPLE",
+      "status": "done",
+      "assignee": "Dmitri"
+    }
+  },
+  {
+    "doc_id": "ticket-022",
+    "source": "tickets",
+    "title": "[PEOPLE-122] Equity refresh grants vest over four years with a one year c",
+    "body": "Equity refresh grants vest over four years with a one year cliff.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to compensation band refresh.",
+    "allowed_principals": [
+      "group:hr"
+    ],
+    "created_at": "2026-05-20T06:00:00",
+    "metadata": {
+      "project": "PEOPLE",
+      "status": "in_progress",
+      "assignee": "Hiro"
+    }
+  },
+  {
+    "doc_id": "ticket-023",
+    "source": "tickets",
+    "title": "[PEOPLE-123] The compensation review cycle closes on August 15",
+    "body": "The compensation review cycle closes on August 15.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to compensation band refresh.",
+    "allowed_principals": [
+      "group:hr"
+    ],
+    "created_at": "2026-05-21T03:00:00",
+    "metadata": {
+      "project": "PEOPLE",
+      "status": "in_progress",
+      "assignee": "Dmitri"
+    }
+  },
+  {
+    "doc_id": "ticket-024",
+    "source": "tickets",
+    "title": "[PEOPLE-124] Grace is running calibration sessions with each department h",
+    "body": "Grace is running calibration sessions with each department head.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to compensation band refresh.",
+    "allowed_principals": [
+      "group:hr"
+    ],
+    "created_at": "2026-05-22T00:00:00",
+    "metadata": {
+      "project": "PEOPLE",
+      "status": "open",
+      "assignee": "Chitra"
+    }
+  },
+  {
+    "doc_id": "ticket-025",
+    "source": "tickets",
+    "title": "[INC-125] The June 12 payments outage lasted 47 minutes and affected 8",
+    "body": "The June 12 payments outage lasted 47 minutes and affected 8 percent of checkouts.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to sev1 payments outage postmortem.",
+    "allowed_principals": [
+      "group:engineering",
+      "group:leadership"
+    ],
+    "created_at": "2026-05-22T21:00:00",
+    "metadata": {
+      "project": "INC",
+      "status": "open",
+      "assignee": "Elena"
+    }
+  },
+  {
+    "doc_id": "ticket-026",
+    "source": "tickets",
+    "title": "[INC-126] Root cause of the payments outage was a misconfigured connec",
+    "body": "Root cause of the payments outage was a misconfigured connection pool limit after a deploy.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to sev1 payments outage postmortem.",
+    "allowed_principals": [
+      "group:engineering",
+      "group:leadership"
+    ],
+    "created_at": "2026-05-23T18:00:00",
+    "metadata": {
+      "project": "INC",
+      "status": "open",
+      "assignee": "Ines"
+    }
+  },
+  {
+    "doc_id": "ticket-027",
+    "source": "tickets",
+    "title": "[INC-127] The payments outage was detected by the synthetic checkout p",
+    "body": "The payments outage was detected by the synthetic checkout probe, not by alerts on error rate.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to sev1 payments outage postmortem.",
+    "allowed_principals": [
+      "group:engineering",
+      "group:leadership"
+    ],
+    "created_at": "2026-05-24T15:00:00",
+    "metadata": {
+      "project": "INC",
+      "status": "done",
+      "assignee": "Kavya"
+    }
+  },
+  {
+    "doc_id": "ticket-028",
+    "source": "tickets",
+    "title": "[INC-128] Remediation includes adding a canary stage and connection po",
+    "body": "Remediation includes adding a canary stage and connection pool alarms.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to sev1 payments outage postmortem.",
+    "allowed_principals": [
+      "group:engineering",
+      "group:leadership"
+    ],
+    "created_at": "2026-05-25T12:00:00",
+    "metadata": {
+      "project": "INC",
+      "status": "in_progress",
+      "assignee": "Jonas"
+    }
+  },
+  {
+    "doc_id": "ticket-029",
+    "source": "tickets",
+    "title": "[INC-129] Estimated revenue impact of the outage is 90 thousand dollar",
+    "body": "Estimated revenue impact of the outage is 90 thousand dollars.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to sev1 payments outage postmortem.",
+    "allowed_principals": [
+      "group:engineering",
+      "group:leadership"
+    ],
+    "created_at": "2026-05-26T09:00:00",
+    "metadata": {
+      "project": "INC",
+      "status": "blocked",
+      "assignee": "Jonas"
+    }
+  },
+  {
+    "doc_id": "ticket-030",
+    "source": "tickets",
+    "title": "[OPS-130] New hires get laptop and accounts provisioned within the fir",
+    "body": "New hires get laptop and accounts provisioned within the first two days.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to new hire onboarding guide.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-27T06:00:00",
+    "metadata": {
+      "project": "OPS",
+      "status": "in_progress",
+      "assignee": "Chitra"
+    }
+  },
+  {
+    "doc_id": "ticket-031",
+    "source": "tickets",
+    "title": "[OPS-131] The onboarding buddy program pairs every new hire with a pee",
+    "body": "The onboarding buddy program pairs every new hire with a peer for the first month.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to new hire onboarding guide.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-28T03:00:00",
+    "metadata": {
+      "project": "OPS",
+      "status": "in_progress",
+      "assignee": "Chitra"
+    }
+  },
+  {
+    "doc_id": "ticket-032",
+    "source": "tickets",
+    "title": "[OPS-132] All new hires complete security training within the first we",
+    "body": "All new hires complete security training within the first week.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to new hire onboarding guide.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-29T00:00:00",
+    "metadata": {
+      "project": "OPS",
+      "status": "open",
+      "assignee": "Hiro"
+    }
+  },
+  {
+    "doc_id": "ticket-033",
+    "source": "tickets",
+    "title": "[OPS-133] The engineering onboarding track includes a starter task in ",
+    "body": "The engineering onboarding track includes a starter task in the first sprint.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to new hire onboarding guide.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-29T21:00:00",
+    "metadata": {
+      "project": "OPS",
+      "status": "done",
+      "assignee": "Grace"
+    }
+  },
+  {
+    "doc_id": "ticket-034",
+    "source": "tickets",
+    "title": "[OPS-134] IT support hours are 9 to 5 in each regional office",
+    "body": "IT support hours are 9 to 5 in each regional office.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to new hire onboarding guide.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-30T18:00:00",
+    "metadata": {
+      "project": "OPS",
+      "status": "in_progress",
+      "assignee": "Kavya"
+    }
+  },
+  {
+    "doc_id": "ticket-035",
+    "source": "tickets",
+    "title": "[OPS-135] The company offers 25 days of paid time off per year plus pu",
+    "body": "The company offers 25 days of paid time off per year plus public holidays.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to paid time off policy.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-05-31T15:00:00",
+    "metadata": {
+      "project": "OPS",
+      "status": "done",
+      "assignee": "Hiro"
+    }
+  },
+  {
+    "doc_id": "ticket-036",
+    "source": "tickets",
+    "title": "[OPS-136] Unused PTO carries over up to 5 days into the next calendar ",
+    "body": "Unused PTO carries over up to 5 days into the next calendar year.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to paid time off policy.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-06-01T12:00:00",
+    "metadata": {
+      "project": "OPS",
+      "status": "in_progress",
+      "assignee": "Hiro"
+    }
+  },
+  {
+    "doc_id": "ticket-037",
+    "source": "tickets",
+    "title": "[OPS-137] PTO requests longer than two weeks need manager approval one",
+    "body": "PTO requests longer than two weeks need manager approval one month ahead.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to paid time off policy.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-06-02T09:00:00",
+    "metadata": {
+      "project": "OPS",
+      "status": "in_progress",
+      "assignee": "Ines"
+    }
+  },
+  {
+    "doc_id": "ticket-038",
+    "source": "tickets",
+    "title": "[OPS-138] Sick leave is separate from PTO and does not require advance",
+    "body": "Sick leave is separate from PTO and does not require advance notice.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to paid time off policy.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-06-03T06:00:00",
+    "metadata": {
+      "project": "OPS",
+      "status": "blocked",
+      "assignee": "Elena"
+    }
+  },
+  {
+    "doc_id": "ticket-039",
+    "source": "tickets",
+    "title": "[OPS-139] Parental leave is 16 weeks fully paid for all parents",
+    "body": "Parental leave is 16 weeks fully paid for all parents.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to paid time off policy.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-06-04T03:00:00",
+    "metadata": {
+      "project": "OPS",
+      "status": "done",
+      "assignee": "Dmitri"
+    }
+  },
+  {
+    "doc_id": "ticket-040",
+    "source": "tickets",
+    "title": "[OPS-140] The annual offsite is in Lisbon during the second week of Se",
+    "body": "The annual offsite is in Lisbon during the second week of September.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to company offsite planning.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-06-05T00:00:00",
+    "metadata": {
+      "project": "OPS",
+      "status": "blocked",
+      "assignee": "Kavya"
+    }
+  },
+  {
+    "doc_id": "ticket-041",
+    "source": "tickets",
+    "title": "[OPS-141] Offsite travel bookings must be completed by August 1",
+    "body": "Offsite travel bookings must be completed by August 1.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to company offsite planning.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-06-05T21:00:00",
+    "metadata": {
+      "project": "OPS",
+      "status": "done",
+      "assignee": "Hiro"
+    }
+  },
+  {
+    "doc_id": "ticket-042",
+    "source": "tickets",
+    "title": "[OPS-142] The offsite agenda includes a hack day and department planni",
+    "body": "The offsite agenda includes a hack day and department planning sessions.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to company offsite planning.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-06-06T18:00:00",
+    "metadata": {
+      "project": "OPS",
+      "status": "blocked",
+      "assignee": "Grace"
+    }
+  },
+  {
+    "doc_id": "ticket-043",
+    "source": "tickets",
+    "title": "[OPS-143] Ines is coordinating dietary requirements and accessibility ",
+    "body": "Ines is coordinating dietary requirements and accessibility needs for the offsite.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to company offsite planning.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-06-07T15:00:00",
+    "metadata": {
+      "project": "OPS",
+      "status": "in_progress",
+      "assignee": "Chitra"
+    }
+  },
+  {
+    "doc_id": "ticket-044",
+    "source": "tickets",
+    "title": "[OPS-144] Each team gets a 2 hour slot for roadmap presentations at th",
+    "body": "Each team gets a 2 hour slot for roadmap presentations at the offsite.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to company offsite planning.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-06-08T12:00:00",
+    "metadata": {
+      "project": "OPS",
+      "status": "in_progress",
+      "assignee": "Jonas"
+    }
+  },
+  {
+    "doc_id": "ticket-045",
+    "source": "tickets",
+    "title": "[COMP-145] The vendor security audit covers all suppliers with access t",
+    "body": "The vendor security audit covers all suppliers with access to production data.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to vendor security audit.",
+    "allowed_principals": [
+      "group:finance",
+      "group:engineering"
+    ],
+    "created_at": "2026-06-09T09:00:00",
+    "metadata": {
+      "project": "COMP",
+      "status": "open",
+      "assignee": "Elena"
+    }
+  },
+  {
+    "doc_id": "ticket-046",
+    "source": "tickets",
+    "title": "[COMP-146] Three vendors failed the initial audit questionnaire and nee",
+    "body": "Three vendors failed the initial audit questionnaire and need remediation plans.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to vendor security audit.",
+    "allowed_principals": [
+      "group:finance",
+      "group:engineering"
+    ],
+    "created_at": "2026-06-10T06:00:00",
+    "metadata": {
+      "project": "COMP",
+      "status": "blocked",
+      "assignee": "Kavya"
+    }
+  },
+  {
+    "doc_id": "ticket-047",
+    "source": "tickets",
+    "title": "[COMP-147] SOC 2 reports are now required for any vendor contract above",
+    "body": "SOC 2 reports are now required for any vendor contract above 50 thousand dollars.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to vendor security audit.",
+    "allowed_principals": [
+      "group:finance",
+      "group:engineering"
+    ],
+    "created_at": "2026-06-11T03:00:00",
+    "metadata": {
+      "project": "COMP",
+      "status": "open",
+      "assignee": "Farid"
+    }
+  },
+  {
+    "doc_id": "ticket-048",
+    "source": "tickets",
+    "title": "[COMP-148] The audit deadline for remediation evidence is September 30",
+    "body": "The audit deadline for remediation evidence is September 30.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to vendor security audit.",
+    "allowed_principals": [
+      "group:finance",
+      "group:engineering"
+    ],
+    "created_at": "2026-06-12T00:00:00",
+    "metadata": {
+      "project": "COMP",
+      "status": "open",
+      "assignee": "Ines"
+    }
+  },
+  {
+    "doc_id": "ticket-049",
+    "source": "tickets",
+    "title": "[COMP-149] Jonas tracks audit status in the shared risk register",
+    "body": "Jonas tracks audit status in the shared risk register.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to vendor security audit.",
+    "allowed_principals": [
+      "group:finance",
+      "group:engineering"
+    ],
+    "created_at": "2026-06-12T21:00:00",
+    "metadata": {
+      "project": "COMP",
+      "status": "open",
+      "assignee": "Elena"
+    }
+  },
+  {
+    "doc_id": "ticket-050",
+    "source": "tickets",
+    "title": "[CORE-150] The hybrid retrieval experiment improved NDCG at 10 by 12 pe",
+    "body": "The hybrid retrieval experiment improved NDCG at 10 by 12 percent over BM25 alone.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to search ranking experiment results.",
+    "allowed_principals": [
+      "group:engineering"
+    ],
+    "created_at": "2026-06-13T18:00:00",
+    "metadata": {
+      "project": "CORE",
+      "status": "done",
+      "assignee": "Chitra"
+    }
+  },
+  {
+    "doc_id": "ticket-051",
+    "source": "tickets",
+    "title": "[CORE-151] Reciprocal rank fusion beat linear score interpolation in ev",
+    "body": "Reciprocal rank fusion beat linear score interpolation in every offline test.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to search ranking experiment results.",
+    "allowed_principals": [
+      "group:engineering"
+    ],
+    "created_at": "2026-06-14T15:00:00",
+    "metadata": {
+      "project": "CORE",
+      "status": "in_progress",
+      "assignee": "Hiro"
+    }
+  },
+  {
+    "doc_id": "ticket-052",
+    "source": "tickets",
+    "title": "[CORE-152] The cross encoder reranker improved click through rate by 6 ",
+    "body": "The cross encoder reranker improved click through rate by 6 percent in the online test.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to search ranking experiment results.",
+    "allowed_principals": [
+      "group:engineering"
+    ],
+    "created_at": "2026-06-15T12:00:00",
+    "metadata": {
+      "project": "CORE",
+      "status": "open",
+      "assignee": "Grace"
+    }
+  },
+  {
+    "doc_id": "ticket-053",
+    "source": "tickets",
+    "title": "[CORE-153] Kavya's query segmentation change reduced zero-result querie",
+    "body": "Kavya's query segmentation change reduced zero-result queries by a third.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to search ranking experiment results.",
+    "allowed_principals": [
+      "group:engineering"
+    ],
+    "created_at": "2026-06-16T09:00:00",
+    "metadata": {
+      "project": "CORE",
+      "status": "blocked",
+      "assignee": "Dmitri"
+    }
+  },
+  {
+    "doc_id": "ticket-054",
+    "source": "tickets",
+    "title": "[CORE-154] Next experiment is testing a distilled reranker to cut infer",
+    "body": "Next experiment is testing a distilled reranker to cut inference cost.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to search ranking experiment results.",
+    "allowed_principals": [
+      "group:engineering"
+    ],
+    "created_at": "2026-06-17T06:00:00",
+    "metadata": {
+      "project": "CORE",
+      "status": "open",
+      "assignee": "Farid"
+    }
+  },
+  {
+    "doc_id": "ticket-055",
+    "source": "tickets",
+    "title": "[OPS-155] The office network refresh replaces all access points over t",
+    "body": "The office network refresh replaces all access points over two weekends.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to office network refresh.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-06-18T03:00:00",
+    "metadata": {
+      "project": "OPS",
+      "status": "open",
+      "assignee": "Grace"
+    }
+  },
+  {
+    "doc_id": "ticket-056",
+    "source": "tickets",
+    "title": "[OPS-156] Wired ports in meeting rooms move to the new VLAN during the",
+    "body": "Wired ports in meeting rooms move to the new VLAN during the refresh.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to office network refresh.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-06-19T00:00:00",
+    "metadata": {
+      "project": "OPS",
+      "status": "done",
+      "assignee": "Grace"
+    }
+  },
+  {
+    "doc_id": "ticket-057",
+    "source": "tickets",
+    "title": "[OPS-157] Expect brief Wi-Fi interruptions on the refresh weekends",
+    "body": "Expect brief Wi-Fi interruptions on the refresh weekends.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to office network refresh.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-06-19T21:00:00",
+    "metadata": {
+      "project": "OPS",
+      "status": "blocked",
+      "assignee": "Dmitri"
+    }
+  },
+  {
+    "doc_id": "ticket-058",
+    "source": "tickets",
+    "title": "[OPS-158] The guest network SSID stays unchanged after the refresh",
+    "body": "The guest network SSID stays unchanged after the refresh.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to office network refresh.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-06-20T18:00:00",
+    "metadata": {
+      "project": "OPS",
+      "status": "done",
+      "assignee": "Ben"
+    }
+  },
+  {
+    "doc_id": "ticket-059",
+    "source": "tickets",
+    "title": "[OPS-159] Report connectivity issues in the IT helpdesk portal, not in",
+    "body": "Report connectivity issues in the IT helpdesk portal, not in chat.\n\nAcceptance criteria: work item is complete when the change is verified in staging and documented. Related to office network refresh.",
+    "allowed_principals": [
+      "group:all-staff"
+    ],
+    "created_at": "2026-06-21T15:00:00",
+    "metadata": {
+      "project": "OPS",
+      "status": "open",
+      "assignee": "Dmitri"
+    }
+  },
+  {
+    "doc_id": "ticket-060",
+    "source": "tickets",
+    "title": "[SYS-900] Legacy import with missing permissions metadata",
+    "body": "This record was imported from the legacy tracker and has no ACL assigned. Per deny-by-default policy only admins can view it until ownership is resolved.",
+    "allowed_principals": [],
+    "created_at": "2026-06-22T12:00:00",
+    "metadata": {
+      "project": "SYS",
+      "status": "open",
+      "assignee": "unassigned"
+    }
+  },
+  {
+    "doc_id": "ticket-061",
+    "source": "tickets",
+    "title": "[SYS-901] Legacy import with missing permissions metadata",
+    "body": "This record was imported from the legacy tracker and has no ACL assigned. Per deny-by-default policy only admins can view it until ownership is resolved.",
+    "allowed_principals": [],
+    "created_at": "2026-06-23T09:00:00",
+    "metadata": {
+      "project": "SYS",
+      "status": "open",
+      "assignee": "unassigned"
+    }
+  }
+]
