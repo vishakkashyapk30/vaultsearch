@@ -15,14 +15,21 @@ ADMIN_GROUP = "group:admin"
 
 
 class IdentityStore:
-    def __init__(self, users: dict[str, list[str]]):
+    def __init__(
+        self,
+        users: dict[str, list[str]],
+        names: dict[str, str] | None = None,
+    ):
         """users maps user_id -> list of group ids (with "group:" prefix)."""
         self._users = users
+        self._names = names or {}
 
     @classmethod
     def load(cls, path: str | Path) -> "IdentityStore":
         data = json.loads(Path(path).read_text())
-        return cls({u["user_id"]: u["groups"] for u in data["users"]})
+        users = {u["user_id"]: u["groups"] for u in data["users"]}
+        names = {u["user_id"]: u.get("name", u["user_id"]) for u in data["users"]}
+        return cls(users, names)
 
     def known_user(self, user_id: str) -> bool:
         return user_id in self._users
@@ -38,6 +45,23 @@ class IdentityStore:
 
     def all_users(self) -> list[str]:
         return sorted(self._users)
+
+    def groups_of(self, user_id: str) -> list[str]:
+        return list(self._users.get(user_id, []))
+
+    def name_of(self, user_id: str) -> str:
+        return self._names.get(user_id, user_id)
+
+    def directory(self) -> list[dict]:
+        """User records for display: id, name, and groups."""
+        return [
+            {
+                "user_id": user_id,
+                "name": self.name_of(user_id),
+                "groups": self.groups_of(user_id),
+            }
+            for user_id in self.all_users()
+        ]
 
 
 def can_access(principals: set[str], allowed_principals: list[str]) -> bool:

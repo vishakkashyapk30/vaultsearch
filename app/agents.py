@@ -11,6 +11,30 @@ from .ollama_client import OllamaClient, OllamaError
 from .retrieval_core import RetrievedChunk, Retriever
 
 
+_CITATION_RE = re.compile(r"\s*\[([A-Za-z0-9_-]+)\]")
+
+
+def _strip_unauthorized_citations(answer: str, allowed_doc_ids: set[str]) -> str:
+    """Remove any citation the model emitted that isn't verified evidence.
+
+    Also cleans up the punctuation left behind (e.g. dangling ", ,") so the
+    sanitized text reads naturally.
+    """
+    answer = _CITATION_RE.sub(
+        lambda m: m.group(0) if m.group(1) in allowed_doc_ids else "",
+        answer,
+    )
+    # Collapse artifacts like "[a], , [b]" or " ,  ," left by removed citations.
+    answer = re.sub(r"(?:\s*,)+(\s*,)", r"\1", answer)
+    answer = re.sub(r"\s+,", ",", answer)
+    answer = re.sub(r",\s*,+", ",", answer)
+    answer = re.sub(r"\(\s*,\s*", "(", answer)
+    answer = re.sub(r"\s*,\s*\)", ")", answer)
+    answer = re.sub(r"\s{2,}", " ", answer)
+    answer = re.sub(r"\s+([.)])", r"\1", answer)
+    return answer.strip()
+
+
 @dataclass
 class QueryPlan:
     subqueries: list[str]
@@ -21,6 +45,7 @@ class QueryPlan:
 class AnswerResult:
     answer: str
     citations: list[str]
+    evidence: list[dict]
     trace: dict
     latency_ms: dict[str, float] = field(default_factory=dict)
 
@@ -153,16 +178,23 @@ class Orchestrator:
         synthesis_ms = (time.perf_counter() - start) * 1000
 
         allowed_doc_ids = {chunk.doc_id for chunk in verified}
-        answer = re.sub(
-            r"\[([A-Za-z0-9_-]+)\]",
-            lambda match: (
-                match.group(0) if match.group(1) in allowed_doc_ids else ""
-            ),
-            answer,
-        )
+        answer = _strip_unauthorized_citations(answer, allowed_doc_ids)
         citations = sorted(
             set(re.findall(r"\[([A-Za-z0-9_-]+)\]", answer))
         )
+        evidence = [
+            {
+                "chunk_id": chunk.chunk_id,
+                "doc_id": chunk.doc_id,
+                "source": chunk.source,
+                "title": chunk.title,
+                "text": chunk.text,
+                "score": round(chunk.score, 4),
+                "allowed_principals": chunk.allowed_principals,
+                "cited": chunk.doc_id in citations,
+            }
+            for chunk in sorted(verified, key=lambda c: -c.score)
+        ]
         latency = {
             "planning": planning_ms,
             "verification": verification_ms,
@@ -176,4 +208,4 @@ class Orchestrator:
             "verified_chunks": len(verified),
             "verification_rejections": rejected,
         }
-        return AnswerResult(answer, citations, trace, latency)
+        return AnswerResult(answer, citations, evidence, trace, latency)

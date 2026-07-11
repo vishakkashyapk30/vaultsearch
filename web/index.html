@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VaultSearch — Secure Retrieval Boundary for RAG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true"></div>
+      <div class="brand-text">
+        <h1>VaultSearch</h1>
+        <p>A secure retrieval boundary for RAG — the answer never surfaces what you can&rsquo;t see.</p>
+      </div>
+    </div>
+    <div class="topbar-status">
+      <span id="corpus-stat" class="stat-pill">&hellip;</span>
+      <span id="health-pill" class="stat-pill pending">connecting</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-head">
+        <h2>Who are you?</h2>
+        <p class="muted">Pick an identity. Every user sees a different slice of the corpus &mdash; that slice is enforced before search runs, not after.</p>
+      </div>
+      <div id="user-list" class="user-list" role="listbox" aria-label="Choose an identity"></div>
+    </aside>
+
+    <section class="content">
+      <nav class="tabs" role="tablist">
+        <button class="tab is-active" data-tab="ask" role="tab">Ask</button>
+        <button class="tab" data-tab="compare" role="tab">Compare retrieval</button>
+        <button class="tab" data-tab="about" role="tab">How it works</button>
+      </nav>
+
+      <!-- ASK -->
+      <div class="panel is-active" data-panel="ask">
+        <div class="asbar">
+          <div class="asbar-user">
+            Asking as <strong id="ask-user-name">&mdash;</strong>
+            <span id="ask-user-visibility" class="chip chip-ghost"></span>
+          </div>
+          <form id="ask-form" class="ask-form">
+            <input id="ask-input" type="text" autocomplete="off"
+              placeholder="Ask a question about the company&hellip;" />
+            <button id="ask-btn" type="submit">Ask</button>
+          </form>
+          <div id="suggestions" class="suggestions"></div>
+        </div>
+
+        <div id="ask-empty" class="empty-state">
+          <div class="empty-illustration" aria-hidden="true"></div>
+          <h3>Ask anything, as anyone.</h3>
+          <p>Try the same restricted question as a finance user and then as an engineer. Watch the answer change &mdash; because the evidence changes first.</p>
+        </div>
+
+        <div id="ask-result" class="ask-result" hidden>
+          <article class="answer-card">
+            <div class="answer-head">
+              <span class="answer-label">Answer</span>
+              <span id="answer-latency" class="chip chip-ghost"></span>
+            </div>
+            <div id="answer-body" class="answer-body"></div>
+            <div id="answer-citations" class="citation-row"></div>
+          </article>
+
+          <section class="evidence">
+            <div class="section-head">
+              <h3>Evidence the model was allowed to read</h3>
+              <span id="evidence-count" class="muted"></span>
+            </div>
+            <div id="evidence-list" class="evidence-list"></div>
+          </section>
+
+          <details class="trace">
+            <summary>Reasoning &amp; permission trace</summary>
+            <div id="trace-body" class="trace-body"></div>
+          </details>
+        </div>
+      </div>
+
+      <!-- COMPARE -->
+      <div class="panel" data-panel="compare">
+        <div class="asbar">
+          <p class="muted">See what each retrieval stage adds. All four modes run over the <em>same permission-filtered candidate set</em> for the selected user.</p>
+          <form id="compare-form" class="ask-form">
+            <input id="compare-input" type="text" autocomplete="off"
+              placeholder="Enter a search query&hellip;" />
+            <button id="compare-btn" type="submit">Compare</button>
+          </form>
+          <div id="compare-visibility" class="banner" hidden></div>
+        </div>
+        <div id="compare-grid" class="compare-grid"></div>
+      </div>
+
+      <!-- ABOUT -->
+      <div class="panel" data-panel="about">
+        <div class="about">
+          <h3>The problem</h3>
+          <p>Retrieval-augmented generation puts a language model in front of a company&rsquo;s documents. The moment you do that, you inherit an access-control problem: the model must never build an answer &mdash; or a citation, or even a hint &mdash; out of a document the person asking is not allowed to read. A single leaked sentence is a breach.</p>
+          <h3>The approach</h3>
+          <ol>
+            <li><strong>Filter before you search.</strong> The user is expanded to their identity and group principals, and both keyword (BM25) and vector search are restricted to authorized documents <em>before</em> any scoring happens. Restricted text never enters ranking, reranking, or the prompt.</li>
+            <li><strong>Verify again before you answer.</strong> An independent check re-confirms every retrieved chunk against the user&rsquo;s permissions &mdash; defense in depth, in case retrieval ever regresses.</li>
+            <li><strong>Sanitize the output.</strong> Any citation the model invents that doesn&rsquo;t map to authorized evidence is stripped before the response leaves the server.</li>
+          </ol>
+          <p class="muted">The authorization decision is always deterministic code. The language model plans searches and phrases answers; it is never trusted to decide who can see what.</p>
+          <h3>What to try</h3>
+          <p>Ask <em>&ldquo;What is the Q3 infrastructure budget?&rdquo;</em> as a finance user, then as an engineer. Or open <strong>Compare retrieval</strong> to watch keyword, vector, fusion, and reranking rank the same authorized results differently.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" hidden></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

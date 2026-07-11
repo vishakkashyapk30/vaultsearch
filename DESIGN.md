@@ -2,14 +2,35 @@
 
 ## Goals
 
-VaultSearch demonstrates secure enterprise retrieval on a single machine:
-ingest heterogeneous sources into one schema, enforce source permissions,
-measure hybrid retrieval quality, and produce grounded answers through a
-locally hosted LLM. The primary invariant is stronger than answer-level
-redaction: unauthorized text must never reach ranking, reranking, or the LLM.
+VaultSearch is a reference implementation of a **secure retrieval boundary for
+RAG**: given a user and a question, produce a grounded, cited answer while
+guaranteeing that no content the user is not authorized to read can influence
+the answer, appear in a citation, or be inferred from the response. Enterprise
+search over heterogeneous sources is the demo scenario, but the boundary itself
+is general — it applies to any multi-tenant or permissioned RAG application.
+
+The primary invariant is stronger than answer-level redaction: unauthorized
+text must never reach ranking, reranking, or the model's context in the first
+place, and everything the model produces is treated as untrusted output.
 
 Non-goals include production-scale tenancy, real third-party connectors,
-distributed indexing, and high availability.
+distributed indexing, and high availability. Where those matter, the scaling
+path below and the scale study in `reports/` describe what would change.
+
+## Threat model
+
+The adversary is a legitimate, authenticated user trying to obtain content
+outside their permissions, by any of:
+
+- crafting queries designed to surface restricted documents;
+- planting prompt-injection instructions in documents they *can* write/read,
+  hoping the model will reveal other teams' data;
+- relying on the model to fabricate or forge citations to restricted material;
+- inferring, from answers or refusals, that a restricted document exists.
+
+Out of scope: a compromised host, a malicious operator, side channels below the
+application, and incorrect ACLs supplied by an upstream source of truth
+(VaultSearch enforces the ACLs it is given; it does not adjudicate them).
 
 ## Architecture
 
@@ -40,6 +61,13 @@ permissions in deterministic code, and asks Ollama to synthesize an answer
 using only verified evidence. Citations are intersected with verified document
 IDs before being returned.
 
+The FastAPI layer serves both the JSON API and a static web interface. `/api/ask`
+returns the answer, citations, the verified evidence, a stage-by-stage trace,
+and per-stage latency. `/api/search` runs all four retrieval modes over the same
+authorized candidate set for side-by-side comparison. `/api/users` reports each
+identity and how many chunks it can see. The UI is dependency-free HTML/CSS/JS
+so it needs no build step and is easy to audit.
+
 ## Security invariants
 
 - Unknown users have no principals and retrieve nothing.
@@ -55,14 +83,41 @@ IDs before being returned.
 Tests exercise each invariant. The adversarial evaluation additionally searches
 returned text for distinctive secrets from documents the test user cannot read.
 
+## Attacking the model layer
+
+Retrieval-time filtering only protects the boundary if the layer above it can't
+undo it. The red-team study (`redteam/run_redteam.py`, report in `reports/`)
+attacks the model directly and reports observed behavior:
+
+- **Prompt injection.** Documents readable by everyone are seeded with
+  instructions telling the model to ignore permissions and reveal other teams'
+  secrets. Because restricted documents are never retrieved, the secrets are not
+  in context, so the injection cannot exfiltrate them — the structural guarantee
+  holds regardless of model compliance.
+- **Citation forgery.** The local model does invent citations (observed in ~40%
+  of raw responses in one run — e.g., ticket display keys or made-up IDs). This
+  is a genuine model-quality failure, which is why the server strips every
+  citation that does not map to verified evidence; none survive to the user.
+- **Existence inference.** When no authorized evidence answers a question, the
+  refusal is produced by deterministic code with no LLM call, so a
+  restricted-but-hidden topic is indistinguishable from a nonexistent one.
+
+The lesson encoded in the design: keep authorization in deterministic code
+below the model, and treat model output (text and citations) as untrusted.
+
 ## Key trade-offs
 
 ### Pre-filter versus post-filter
 
 Post-filtering a global top-k can leak data into rerankers or prompts and can
-return too few permitted results. Pre-filtering avoids both problems. The local
-implementation calculates authorized IDs per query; a production service would
-cache user/group expansion and maintain compressed ACL bitmaps.
+return too few permitted results. Pre-filtering avoids both problems. The scale
+study (`reports/scale_study.md`) quantifies this up to one million vectors: with
+a fixed over-fetch budget, post-filter recall collapses to ~0.45 once a user can
+see only 0.2% of the corpus, while pre-filter recall stays exact and its latency
+*drops* as ACLs tighten (the selector confines the scan to authorized IDs). The
+local implementation calculates authorized IDs per query; a production service
+would cache user/group expansion and maintain compressed ACL bitmaps, and move
+from a flat index to a sharded ANN index with ACL-aware partitioning.
 
 ### RRF versus learned fusion
 
