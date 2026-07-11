@@ -102,6 +102,15 @@ cd vaultsearch
 
 ### Step 3 — Set up Python and install dependencies
 
+On macOS or Linux, just run the setup script:
+
+```bash
+./setup.sh
+source .venv/bin/activate
+```
+
+Or do it by hand (all platforms):
+
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
@@ -111,17 +120,11 @@ pip install -r requirements.txt
 The first install downloads PyTorch and some models and can take several
 minutes. This is normal.
 
-> **Using Cursor as a Linux AppImage?** If `venv` tries to execute
-> `cursor.AppImage` and exits with `SIGTRAP`, Cursor's `APPIMAGE` environment
-> variable is confusing Python. Run `unset APPIMAGE`, remove the partial
-> `.venv`, and repeat Step 3:
-> ```bash
-> unset APPIMAGE
-> rm -rf .venv
-> python3 -m venv .venv
-> source .venv/bin/activate
-> pip install -r requirements.txt
-> ```
+> **Using an editor packaged as a Linux AppImage (e.g. Cursor)?** If
+> `python3 -m venv` tries to execute `cursor.AppImage` and exits with `SIGTRAP`,
+> the editor's `APPIMAGE` variable is confusing Python. `./setup.sh` already
+> handles this; to do it manually, delete the half-created env and clear the
+> variable for the command: `rm -rf .venv && env -u APPIMAGE python3 -m venv .venv`.
 
 ### Step 4 — Build the demo data and search index
 
