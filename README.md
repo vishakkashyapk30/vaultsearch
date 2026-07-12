@@ -29,7 +29,6 @@ runs, not patched on afterward. Runs entirely on your own machine.
 15. [Project layout](#project-layout)
 16. [Tech stack](#tech-stack)
 
----
 
 ## Quick start
 
@@ -60,7 +59,6 @@ Open **[http://localhost:8000](http://localhost:8000)** once you see `Applicatio
 
 To stop everything: `Ctrl+C`, then `docker compose down`.
 
----
 
 ### Option B — Plain Python (no Docker)
 
@@ -96,7 +94,6 @@ Open **[http://localhost:8000](http://localhost:8000)**.
 > handles this. If you're creating the venv manually, run:
 > `rm -rf .venv && env -u APPIMAGE python3 -m venv .venv`
 
----
 
 ## Using the app
 
@@ -124,7 +121,6 @@ Open **[http://localhost:8000](http://localhost:8000)**.
 - In Compare, search *"latency"* and watch the cross-encoder reorder what BM25
   and vector search each surfaced.
 
----
 
 ## Why this project exists
 
@@ -151,7 +147,6 @@ support bot, and multi-tenant RAG product, not to any one company. VaultSearch
 is a small, complete, runnable reference implementation of that secure
 boundary, with enterprise search as the demo scenario.
 
----
 
 ## A primer: how RAG works, and where it leaks
 
@@ -220,7 +215,6 @@ candidate set handed to BM25 and FAISS is already permission-filtered), then
 **re-verified** after retrieval, then the model's output is **sanitized**.
 Three independent layers; the model is trusted with none of them.
 
----
 
 ## The synthetic company: data, storylines, and ACLs
 
@@ -280,7 +274,6 @@ Two special document classes complete the corpus:
   window. Because they are all-staff readable, they *will* be retrieved. That
   is the point.
 
----
 
 ## The cast of characters and what each one represents
 
@@ -327,7 +320,6 @@ The design logic behind this cast:
   never is. The names also appear inside the documents themselves (Asha owns
   Atlas, Grace runs calibration), so evidence reads like a real company's.
 
----
 
 ## Reading the interface
 
@@ -360,7 +352,6 @@ The UI uses a compact notation; here is the decoder ring.
   the size of the candidate set *before any searching happened*, which is the
   entire security model in one number.
 
----
 
 ## The pipeline, end to end
 
@@ -620,7 +611,6 @@ The interface itself is deliberately dependency-free: one HTML file, one
 stylesheet, one script, served by the same process. Nothing to build, nothing
 to version-skew.
 
----
 
 ## What is agentic here, and what deliberately is not
 
@@ -660,7 +650,6 @@ tools, smarter refinement) increases the model's authority over retrieval
 tests (`tests/test_agent_loop.py`) assert this directly — an assessor that
 aggressively retries restricted topics never widens what the user sees.
 
----
 
 ## Using VaultSearch from other agents (MCP)
 
@@ -689,7 +678,6 @@ Example configuration for Cursor or Claude Desktop:
 }
 ```
 
----
 
 ## Results
 
@@ -731,7 +719,6 @@ corpus (recall drops to ~0.45 at 0.2% visibility), while pre-filtering stays
 exact *and* gets faster as permissions tighten. Under the selective access that
 is normal in an enterprise, pre-filtering wins on both correctness and latency.
 
----
 
 ## Running the evaluations yourself
 
@@ -742,7 +729,6 @@ python redteam/run_redteam.py  # LLM-layer red-team (needs Ollama running)
 python eval/scale_study.py     # pre/post-filter scaling (no models needed)
 ```
 
----
 
 ## The cloud-native layer (LocalStack + Terraform)
 
@@ -809,7 +795,6 @@ To deploy to real AWS: run `terraform apply` without the `localstack_endpoint`
 variable and supply real credentials. No Python code changes — boto3 reads
 `AWS_ENDPOINT_URL` from the environment.
 
----
 
 ## Configuration
 
@@ -824,7 +809,6 @@ Set via environment variables or in `.env` (see `.env.example`).
 | `USE_CRITIC` | `true` | Set to `false` to skip the advisory groundedness critic |
 | `AUDIT_DYNAMODB_TABLE` | *(empty)* | Mirror audit events to this DynamoDB table (cloud layer) |
 
----
 
 ## Project layout
 
@@ -899,7 +883,6 @@ vaultsearch/
 └── DESIGN.md                       architecture, invariants, trade-offs, scaling path
 ```
 
----
 
 ## Tech stack
 
