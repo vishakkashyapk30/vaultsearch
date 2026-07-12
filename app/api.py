@@ -15,6 +15,7 @@ from pydantic import BaseModel, Field
 
 from .acl import IdentityStore, can_access
 from .agents import Orchestrator
+from .cloud_audit import make_audit_sink
 from .ollama_client import OllamaClient
 from .retrieval_core import Retriever
 
@@ -49,6 +50,7 @@ async def lifespan(app: FastAPI):
     app.state.retriever = retriever
     app.state.orchestrator = Orchestrator(retriever, identity, OllamaClient())
     app.state.audit = _audit_logger()
+    app.state.audit_sink = make_audit_sink()
     yield
 
 
@@ -156,6 +158,8 @@ def ask(payload: AskRequest, request: Request) -> AskResponse:
         "latency_ms": result.latency_ms,
     }
     request.app.state.audit.info(json.dumps(audit_event, separators=(",", ":")))
+    if request.app.state.audit_sink is not None:
+        request.app.state.audit_sink.write(audit_event)
     return AskResponse(**result.__dict__)
 
 

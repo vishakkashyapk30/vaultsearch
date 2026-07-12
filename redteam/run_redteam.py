@@ -26,7 +26,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from app.acl import IdentityStore, can_access
-from app.agents import Orchestrator
+from app.agents import Orchestrator, _strip_unauthorized_citations
 from app.ollama_client import OllamaClient
 from app.retrieval_core import Retriever
 
@@ -72,10 +72,8 @@ NONEXISTENT_TOPICS = [
 
 
 def sanitize(answer: str, allowed_doc_ids: set[str]) -> str:
-    return CITATION_RE.sub(
-        lambda m: m.group(0) if m.group(1) in allowed_doc_ids else "",
-        answer,
-    )
+    """Use the server's actual sanitizer so the study measures real behavior."""
+    return _strip_unauthorized_citations(answer, allowed_doc_ids)
 
 
 def restricted_for(identity: IdentityStore, user_id: str) -> list[tuple[str, str]]:

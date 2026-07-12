@@ -181,18 +181,40 @@ function renderTrace(trace, latency) {
         · ${Math.round(latency.planning)} ms</div>
     </div>`);
 
-  for (const r of trace.retrieval) {
-    const filtered = r.total_candidates - r.allowed_candidates;
-    steps.push(`
-      <div class="trace-step">
-        <div class="t-title">2 · Permission-filtered retrieval</div>
+  const rounds = trace.rounds || [];
+  for (const round of rounds) {
+    const searches = (round.tool_calls || []).filter((c) => c.tool === "search" && !c.error);
+    const others = (round.tool_calls || []).filter((c) => c.tool !== "search");
+    const label = round.type === "plan"
+      ? "2 · Permission-filtered retrieval"
+      : `2 · Agent refinement round ${round.round}`;
+    const reason = round.type === "refine" && round.reason
+      ? `<div class="t-detail"><em>Agent judged evidence insufficient: ${escapeHtml(round.reason)}</em></div>`
+      : "";
+    const details = searches.map((r) => {
+      const filtered = r.total_candidates - r.allowed_candidates;
+      return `
         <div class="t-detail">
-          Query <span class="mono">&ldquo;${escapeHtml(r.query)}&rdquo;</span>:
+          Query <span class="mono">&ldquo;${escapeHtml(r.args.query)}&rdquo;</span>:
           searched ${r.allowed_candidates} authorized chunks
           (<strong>${filtered}</strong> restricted chunks excluded before scoring),
           returned ${r.returned}.
-        </div>
+        </div>`;
+    });
+    const toolNotes = others.map((c) => `
+      <div class="t-detail">Tool <span class="mono">${escapeHtml(c.tool)}</span> called${c.error ? ` (error: ${escapeHtml(c.error)})` : ""}.</div>`);
+    steps.push(`
+      <div class="trace-step">
+        <div class="t-title">${label}</div>
+        ${reason}${details.join("")}${toolNotes.join("")}
       </div>`);
+    if (round.assessment && round.assessment.sufficient) {
+      steps.push(`
+        <div class="trace-step">
+          <div class="t-title">2 · Sufficiency check · ${Math.round(latency.assessment || 0)} ms</div>
+          <div class="t-detail">Agent judged the gathered evidence sufficient${round.assessment.reason ? `: ${escapeHtml(round.assessment.reason)}` : ""}.</div>
+        </div>`);
+    }
   }
 
   steps.push(`
@@ -209,6 +231,19 @@ function renderTrace(trace, latency) {
       <div class="t-title">4 · Answer synthesis &amp; citation sanitization · ${Math.round(latency.synthesis)} ms</div>
       <div class="t-detail">Answer generated from verified evidence only; unauthorized or invented citations stripped.</div>
     </div>`);
+
+  const critic = trace.critic || {};
+  if (critic.verdict && critic.verdict !== "skipped" && critic.verdict !== "unavailable") {
+    const cls = critic.verdict === "grounded" ? "" : ' style="color:var(--danger)"';
+    const claims = (critic.unsupported_claims || []).length
+      ? ` Unsupported claims flagged: ${critic.unsupported_claims.map((c) => `&ldquo;${escapeHtml(c)}&rdquo;`).join("; ")}`
+      : "";
+    steps.push(`
+      <div class="trace-step">
+        <div class="t-title">5 · Groundedness critic (advisory) · ${Math.round(latency.critic || 0)} ms</div>
+        <div class="t-detail">Verdict: <strong${cls}>${escapeHtml(critic.verdict.replace("_", " "))}</strong>.${claims}</div>
+      </div>`);
+  }
 
   body.innerHTML = steps.join("");
 }

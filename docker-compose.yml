@@ -1,17 +1,81 @@
 services:
+
+  # ── Language model (runs locally, no API key needed) ───────────────────────
+  ollama:
+    image: ollama/ollama
+    volumes:
+      - ollama-models:/root/.ollama
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    restart: unless-stopped
+
+  # One-shot container that pulls the model before the app starts.
+  # It exits with code 0 and Docker ignores it on subsequent `up` calls.
+  ollama-pull:
+    image: ollama/ollama
+    depends_on:
+      ollama:
+        condition: service_healthy
+    entrypoint: ["sh", "-c", "ollama pull ${OLLAMA_MODEL:-gemma3:4b}"]
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    restart: "no"
+
+  # ── VaultSearch API + web UI ────────────────────────────────────────────────
   vaultsearch:
     build: .
-    network_mode: host
+    ports:
+      - "8000:8000"
+    depends_on:
+      ollama-pull:
+        condition: service_completed_successfully
     environment:
-      OLLAMA_URL: http://127.0.0.1:11434
+      OLLAMA_URL: http://ollama:11434
       OLLAMA_MODEL: ${OLLAMA_MODEL:-gemma3:4b}
       USE_RERANKER: ${USE_RERANKER:-true}
+      AGENT_MAX_ROUNDS: ${AGENT_MAX_ROUNDS:-2}
+      USE_CRITIC: ${USE_CRITIC:-true}
       HF_HOME: /cache/huggingface
+      # Cloud-native audit mirror (optional — only active when LocalStack is up).
+      # Remove or leave blank if you are not using the cloud layer.
+      AUDIT_DYNAMODB_TABLE: ${AUDIT_DYNAMODB_TABLE:-}
+      AWS_ENDPOINT_URL: ${AWS_ENDPOINT_URL:-}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-test}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-test}
+      AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION:-us-east-1}
     volumes:
       - ./indexes:/app/indexes
       - ./logs:/app/logs
-      - huggingface-cache:/cache/huggingface
+      - hf-cache:/cache/huggingface
+    restart: unless-stopped
+
+  # ── LocalStack: local AWS emulation (optional cloud-native layer) ───────────
+  # Requires a free LocalStack auth token: https://app.localstack.cloud
+  # Add LOCALSTACK_AUTH_TOKEN to .env (see .env.example), then run:
+  #   docker compose --profile cloud up
+  localstack:
+    image: localstack/localstack
+    profiles: ["cloud"]
+    ports:
+      - "127.0.0.1:4566:4566"
+    environment:
+      LOCALSTACK_AUTH_TOKEN: ${LOCALSTACK_AUTH_TOKEN:-}
+    volumes:
+      - localstack-data:/var/lib/localstack
+      - /var/run/docker.sock:/var/run/docker.sock
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4566/_localstack/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
     restart: unless-stopped
 
 volumes:
-  huggingface-cache:
+  ollama-models:
+  hf-cache:
+  localstack-data:

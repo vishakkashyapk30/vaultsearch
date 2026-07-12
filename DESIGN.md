@@ -55,11 +55,22 @@ For `(user_id, query)`, retrieval follows this sequence:
 6. Rerank the authorized fused candidates with a cross-encoder.
 7. Independently recheck every result before synthesis.
 
-The orchestrator asks Ollama for a bounded list of standalone subqueries,
-executes each through the same secured retriever, deduplicates results, verifies
-permissions in deterministic code, and asks Ollama to synthesize an answer
-using only verified evidence. Citations are intersected with verified document
-IDs before being returned.
+The orchestrator asks Ollama for a bounded list of standalone subqueries and
+executes them as tool calls against a `Toolbox` (`app/tools.py`) bound to one
+user identity at construction — no tool accepts a user_id argument, so the
+model chooses what to call, never whose permissions apply. After the initial
+round, an LLM assessor judges whether the verified evidence suffices; if not,
+it proposes further tool calls (rephrased searches, directory lookups), each
+validated by deterministic code and capped at `AGENT_MAX_ROUNDS` refinement
+rounds. Results are deduplicated, permissions are re-verified in deterministic
+code over the final merged set (after the loop, so no tool use can route
+around it), and Ollama synthesizes an answer using only verified evidence.
+Citations are intersected with verified document IDs before being returned,
+and an advisory groundedness critic reviews the sanitized answer without
+enforcing anything.
+
+The same boundary is exported to external agents via `mcp_server.py`: MCP
+tools with the identity pinned per server process, never per call.
 
 The FastAPI layer serves both the JSON API and a static web interface. `/api/ask`
 returns the answer, citations, the verified evidence, a stage-by-stage trace,
@@ -146,6 +157,18 @@ container health checks. Every `/ask` emits one JSON-line audit event. Retrieval
 reports per-stage latency, candidate counts, and total latency. If Ollama is
 unavailable, retrieval remains functional and synthesis returns a bounded
 availability message rather than fabricated content.
+
+## Cloud-native layer
+
+`cloud/` is an optional, additive restructuring of the offline pipeline
+around AWS primitives, emulated locally with LocalStack and provisioned with
+Terraform (the same HCL applies to real AWS): raw sources in S3, S3 events
+driving an SQS-consuming ingest worker that runs the unchanged
+chunking-inherits-ACL pipeline, built indexes published to an artifacts
+bucket, and audit events mirrored (best-effort, never blocking the answer
+path) to a DynamoDB table keyed by user for one-Query security review. The
+core demo remains fully functional without it; ACLs travel inside the
+documents so the transport layer cannot widen access.
 
 ## Scaling path
 
